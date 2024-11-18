@@ -1,0 +1,363 @@
+.tariffs {
+  max-width: 192rem;
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+
+  /* .tariffs__container */
+
+  &__container {
+    border-left: 1.5px solid $light-grey;
+    border-right: 1.5px solid $light-grey;
+    padding-top: 0 !important;
+    @media (max-width: 48em) {
+      padding: 0;
+      margin: 0 1.6rem;
+      width: calc(100% - 3.2rem);
+      padding-top: 2rem !important;
+    }
+  }
+  &__inner-box {
+    &--mob {
+      position: absolute;
+      max-width: 0;
+      overflow: hidden;
+      z-index: -100;
+      opacity: 0;
+      visibility: hidden;
+      @include small-tablet {
+        position: relative;
+        max-width: none;
+        overflow: visible;
+        z-index: 0;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    &--desktop {
+      @include small-tablet {
+        position: absolute;
+        max-width: 0;
+        overflow: hidden;
+        z-index: -100;
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  }
+
+  &__inner-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    @media (max-width: 48em) {
+      min-height: unset;
+    }
+  }
+  /* .tariffs__inner */
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 8rem;
+    position: relative;
+    padding: 0 5rem;
+    @media (max-width: 48em) {
+      padding: 0 2.4rem;
+      gap: 4.8rem;
+    }
+  }
+
+  /* .tariffs__title-wrapper */
+
+  &__title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: 48em) {
+      flex-direction: column-reverse;
+      gap: 3.2rem;
+    }
+  }
+
+  /* .tariffs__title-box */
+
+  &__title-box {
+  }
+
+  /* .tariffs__title */
+
+  &__title {
+    width: 114.5rem;
+    @media (max-width: 48em) {
+      width: 100%;
+    }
+  }
+
+  /* .tariffs__subtitle */
+
+  &__subtitle {
+    flex-shrink: 0;
+    height: 100%;
+  }
+
+  /* .tariffs__content-box */
+
+  &__content-box {
+    display: flex;
+    gap: 8rem;
+    @include small-tablet {
+      flex-direction: column-reverse;
+      gap: 4.8rem;
+    }
+  }
+
+  /* .tariffs__progress-bar-wrapper */
+
+  &__progress-bar-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+    width: fit-content;
+    position: relative;
+    z-index: 10;
+
+    @media (max-width: 48em) {
+      flex-direction: row;
+      gap: 1.2rem;
+    }
+  }
+
+  /* .tariffs__progress-bar-num-box */
+
+  &__progress-bar-num-box {
+  }
+
+  /* .tariffs__progress-bar-start-num-box */
+
+  &__progress-bar-start-num-box {
+  }
+
+  /* .tariffs__progress-bar-num */
+
+  &__progress-bar-num {
+    color: $grew;
+  }
+
+  /* .tariffs__progress-bar-start-num */
+
+  &__progress-bar-start-num {
+  }
+
+  /* .tariffs__progress-bar-box */
+
+  &__progress-bar-box {
+    position: relative;
+    width: 0.5rem;
+    height: 60rem;
+    border-radius: 0.4rem;
+    overflow: hidden;
+    background-color: $light-grey;
+    @media (max-width: 48em) {
+      height: auto;
+      width: 59.2rem;
+      height: 0.6rem;
+    }
+  }
+
+  /* .tariffs__progress-bar-height */
+
+  &__progress-bar-height {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: $violet;
+    width: 0.5rem;
+    @media (max-width: 48em) {
+      height: 0.6rem;
+      right: auto;
+      bottom: 0;
+      transition: width 0.8s;
+    }
+    // height: 33%;
+  }
+
+  /* .tariffs__progress-bar-end-num-box */
+
+  &__progress-bar-end-num-box {
+  }
+
+  /* .tariffs__progress-bar-end-num */
+
+  &__progress-bar-end-num {
+  }
+
+  /* .tariffs__swiper-box */
+
+  &__swiper-box {
+  }
+
+  /* .tariffs__swiper */
+
+  &__swiper {
+    width: 164.5rem;
+    @media (max-width: 48em) {
+      width: 67rem;
+      overflow: visible!important;
+    }
+  }
+
+  /* .tariffs__swiper-wrapper */
+
+  &__swiper-wrapper {
+    display: grid;
+  }
+
+  /* .tariffs__tariffs-slide */
+
+  &__tariffs-slide {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    // position: absolute;
+    // inset: 0;
+    border-radius: 4rem;
+    background-color: $orange;
+    @media (max-width: 48em) {
+    }
+  }
+
+  /* .tariffs__tariffs-slide-inner */
+
+  &__tariffs-slide-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 4rem 4rem 10rem;
+    border-radius: 4rem;
+    background: url(./assets/images/tariffsBgDesk.webp) no-repeat top/cover;
+    // background-color: $orange;
+
+    @media (max-width: 48em) {
+      background: url(./assets/images/tariffsBgMob.webp) no-repeat top/cover;
+      padding: 6.4rem 4rem 3.6rem;
+      flex-direction: column;
+      gap: 8rem;
+    }
+  }
+
+  /* .tariffs__tariffs-slide-content-box */
+
+  &__tariffs-slide-content-box {
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+    @media (max-width: 48em) {
+      gap: 4.8rem;
+    }
+  }
+
+  /* .tariffs__tariffs-slide-content-billet */
+
+  &__tariffs-slide-content-billet {
+  }
+
+  /* .tariffs__tariffs-slide-content-title-box */
+
+  &__tariffs-slide-content-title-box {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 54.3rem;
+    @media (max-width: 48em) {
+      gap: 2.4rem;
+      width: 100%;
+    }
+  }
+
+  /* .tariffs__tariffs-slide-content-title */
+
+  &__tariffs-slide-content-title {
+  }
+
+  /* .tariffs__tariffs-slide-content-desc */
+
+  &__tariffs-slide-content-desc {
+  }
+
+  /* .tariffs__tariffs-slide-img-wrapper */
+
+  &__tariffs-slide-img-wrapper {
+    position: relative;
+  }
+
+  /* .tariffs__tariffs-slide-img-info-box */
+
+  &__tariffs-slide-img-info-box {
+    position: absolute;
+    padding: 3.2rem;
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    transform: rotate(-16deg);
+    bottom: 3.6rem;
+    left: -21.9rem;
+    border-radius: 4rem;
+
+    @media (max-width: 48em) {
+      padding: 2.4rem 3.4rem 2.4rem 4rem;
+      border-radius: 2.4rem;
+      left: auto;
+      bottom: 2.6rem;
+      right: 2.6rem;
+      transform: rotate(0);
+    }
+  }
+
+  /* .tariffs__tariffs-slide-img-info-num */
+
+  &__tariffs-slide-img-info-num {
+  }
+
+  /* .tariffs__tariffs-slide-img-info-text */
+
+  &__tariffs-slide-img-info-text {
+    color: $grew;
+  }
+
+  /* .tariffs__tariffs-slide-img-info-decor */
+
+  &__tariffs-slide-img-info-decor {
+    position: absolute;
+    width: 6.6rem;
+    height: 6.6rem;
+    right: -1rem;
+    bottom: -2.5rem;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 48em) {
+      width: 5.8rem;
+      height: 5.6rem;
+    }
+  }
+
+  /* .tariffs__tariffs-slide-img-box */
+
+  &__tariffs-slide-img-box {
+    width: 57.8rem;
+    height: 55.5rem;
+    border-radius: 4rem;
+    overflow: hidden;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
