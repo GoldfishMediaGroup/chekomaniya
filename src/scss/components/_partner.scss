@@ -1,0 +1,257 @@
+.partner {
+  max-width: 192rem;
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+  /* .partner__container */
+
+  &__container {
+    border-left: 1.5px solid $light-grey;
+    border-right: 1.5px solid $light-grey;
+    //  position: relative;
+    @media (max-width: 48em) {
+      padding: 0;
+      margin: 0 1.6rem;
+      width: calc(100% - 3.2rem);
+    }
+  }
+
+  /* .partner__inner */
+
+  &__inner {
+    padding: 0rem 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+    @include small-tablet {
+      gap: 6.4rem;
+      padding: 0rem 2.4rem;
+    }
+  }
+
+  /* .partner__title-wrapper */
+
+  &__title-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    @include small-tablet {
+      gap: 3.2rem;
+    }
+  }
+
+  /* .partner__title-box */
+
+  &__title-box {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* .partner__title */
+
+  &__title {
+  }
+
+  /* .partner__title--indent */
+
+  &__title--indent {
+    padding-left: 28.5rem;
+    @include small-tablet {
+      padding-left: 0;
+    }
+  }
+
+  /* .partner__subtitle */
+
+  &__subtitle {
+    width: 56rem;
+    align-self: center;
+    color: $grew;
+    @include small-tablet {
+      width: 100%;
+    }
+  }
+
+  /* .partner__card-wrapper */
+
+  &__card-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    @include small-tablet {
+      flex-direction: column;
+      gap: 2.4rem;
+    }
+  }
+
+  /* .partner__card-box */
+
+  &__card-box {
+    width: 56.8rem;
+    height: 52.7rem;
+    @include small-tablet {
+      width: 100%;
+      height: 48.8rem;
+    }
+  }
+
+  /* .partner__card-box--first */
+
+  &__card-box--first {
+    & .partner__card-box-content-box {
+      border-radius: 4rem 4rem 100rem 4rem;
+      background-color: $black;
+      @include small-tablet {
+        border-radius: 4rem 4rem 80rem 4rem;
+      }
+    }
+  }
+
+  /* .partner__card-box--second */
+
+  &__card-box--second {
+    & .partner__card-box-content-box {
+      background: $violet url(./assets/images/partnerCard2.webp) no-repeat top/cover;
+      justify-content: space-between;
+    }
+  }
+
+  /* .partner__card-box--third */
+
+  &__card-box--third {
+    & .partner__card-box-content-box {
+      background-color: $orange;
+    }
+  }
+
+  /* .partner__card-inner-box */
+
+  &__card-inner-box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* .partner__card-box-content-box */
+
+  &__card-box-content-box {
+    width: 100%;
+    height: 100%;
+    padding: 4rem;
+    border-radius: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+
+  /* .partner__card-box-content-title */
+
+  &__card-box-content-title {
+    color: $white;
+  }
+
+  /* .partner__card-box-content-billet-box */
+
+  &__card-box-content-billet-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    @include small-tablet {
+      gap: 1.6rem;
+    }
+  }
+
+  /* .partner__card-box-content-billet */
+
+  &__card-box-content-billet {
+    @include small-tablet {
+      padding: 1.2rem;
+    }
+    & p {
+      @include small-tablet {
+        font-size: 2.8rem;
+      }
+    }
+  }
+
+  /* .partner__card-box-btn-box */
+
+  &__card-box-btn-box {
+  }
+
+  /* .partner__card-box-btn */
+
+  &__card-box-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 22.9rem;
+    height: 22.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: $orange;
+
+    @media (max-width: 48em) {
+      width: 23rem;
+      height: 23rem;
+    }
+  }
+
+  /* .partner__card-box-btn-text-box */
+
+  &__card-box-btn-text-box {
+    position: absolute;
+    width: 21.1rem;
+    height: 21.1rem;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 48em) {
+      width: 21.4rem;
+      height: 21.4rem;
+    }
+  }
+
+  /* .partner__card-box-btn-svg-box */
+
+  &__card-box-btn-svg-box {
+    position: absolute;
+    width: 6.4rem;
+    height: 6.4rem;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 48em) {
+      width: 6.6rem;
+      height: 6.6rem;
+    }
+  }
+
+  /* .partner__card-box-content-img-box */
+
+  &__card-box-content-img-box {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 33.9rem;
+    height: 35.8rem;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 48em) {
+      width: 29.2rem;
+      height: 30.8rem;
+    }
+  }
+}

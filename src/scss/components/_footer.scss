@@ -1,0 +1,120 @@
+.footer {
+  /* .footer__inner */
+  margin-bottom: 3.2rem;
+
+
+  @include small-tablet {
+    margin-bottom: 2rem;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10rem;
+    border: 1.5px solid $light-grey;
+    border-top: unset;
+    @media (max-width: 48em) {
+      padding-top: 11.2rem;
+    }
+  }
+
+  /* .footer__top */
+
+  &__top {
+    padding: 3.2rem 5rem;
+    border-top: 1.5px solid $light-grey;
+    // border-bottom: unset;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include small-tablet {
+      padding: 4.8rem 2.4rem;
+      flex-direction: column;
+      gap: 6.4rem;
+      align-items: flex-start;
+    }
+  }
+
+  /* .footer__logo-box */
+
+  &__logo-box {
+  }
+
+  /* .footer__logo-text */
+
+  &__logo-text {
+    @include small-tablet {
+      font-size: 5.4rem;
+    }
+  }
+
+  &__nav-list-box {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+
+    @include small-tablet {
+      display: grid;
+      grid-template-columns: 31.2rem 22.2rem;
+      gap: 4rem;
+      align-items: start;
+    }
+  }
+  /* .footer__nav-list */
+
+  &__nav-list {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    @include small-tablet {
+      flex-direction: column;
+      gap: 4.8rem;
+      align-items: flex-start;
+    }
+  }
+
+  /* .footer__nav-item */
+
+  &__nav-item {
+  }
+
+  /* .footer__nav-link */
+
+  &__nav-link {
+    transition: color 0.3s;
+
+    &:hover {
+      color: $violet;
+    }
+  }
+
+  /* .footer__nav-btn */
+
+  &__nav-btn {
+  }
+
+  /* .footer__bottom */
+
+  &__bottom {
+    padding: 3.2rem 5rem;
+    border-top: 1.5px solid $light-grey;
+    border-bottom: 1.5px solid $light-grey;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include small-tablet {
+      padding: 3rem 2.4rem 3.6rem;
+      flex-direction: column;
+      gap: 3.2rem;
+      align-items: flex-start;
+    }
+  }
+
+  /* .footer__bottom-text */
+
+  &__bottom-text {
+    color: $grew;
+  }
+}

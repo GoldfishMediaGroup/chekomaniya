@@ -1,0 +1,227 @@
+.what {
+  max-width: 192rem;
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+  /* .what__container */
+
+  &__container {
+    border-left: 1.5px solid $light-grey;
+    border-right: 1.5px solid $light-grey;
+    @media (max-width: 48em) {
+      padding: 0;
+      margin: 0 1.6rem;
+      width: calc(100% - 3.2rem);
+    }
+  }
+
+  /* .what__inner */
+
+  &__inner {
+    background: $black url(./assets/images/whatBg.png) no-repeat top/cover;
+
+    color: $white;
+    border-radius: 4rem;
+    padding: 12rem 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+
+    @media (max-width: 48em) {
+      background: $black url(./assets/images/whatBgMob.png) no-repeat top/cover;
+      gap: 3.2rem;
+      border-radius: 4.8rem;
+      padding: 6.4rem 2rem;
+    }
+  }
+
+  /* .what__title-wrapper */
+
+  &__title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: 48em) {
+      flex-direction: column;
+      gap: 4.8rem;
+    }
+  }
+
+  /* .what__subtitle */
+
+  &__subtitle {
+    flex-shrink: 0;
+    height: 100%;
+  }
+
+  /* .what__title-box */
+
+  &__title-box {
+    width: 114rem;
+    @media (max-width: 48em) {
+      width: 100%;
+    }
+  }
+
+  /* .what__title */
+
+  &__title {
+    text-indent: 13rem;
+    color: $orange;
+
+    @media (max-width: 48em) {
+      text-indent: 0;
+    }
+  }
+
+  /* .what__title-span */
+
+  &__title-span {
+  }
+
+  /* .what__title-span--violet */
+
+  &__title-span--violet {
+    color: $white;
+    position: relative;
+    display: inline-block;
+    text-indent: 0;
+    transform: rotate(4deg);
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      border-radius: 2.4rem;
+      width: 105%;
+      height: 9.4rem;
+      background-color: $violet;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      @include small-tablet {
+        height: 6.4rem;
+        border-radius: 1.6rem;
+        width: 105%;
+      }
+    }
+  }
+
+  /* .what__content-wrapper */
+
+  &__content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    @media (max-width: 48em) {
+      flex-direction: column-reverse;
+      gap: 4.8rem;
+    }
+  }
+
+  /* .what__content-btn-box */
+
+  &__content-btn-box {
+    align-self: flex-end;
+  }
+
+  /* .what__content-btn */
+
+  &__content-btn {
+    width: 25.5rem;
+    height: 25.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: $violet;
+    position: relative;
+
+    @media (max-width: 48em) {
+      width: 23.2rem;
+      height: 23.2rem;
+    }
+  }
+
+  /* .what__content-btn-text-box */
+
+  &__content-btn-text-box {
+    position: absolute;
+    width: 22.9rem;
+    height: 23.1rem;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 48em) {
+      width: 20.8rem;
+      height: 21rem;
+    }
+  }
+
+  /* .what__content-btn-svg-box */
+
+  &__content-btn-svg-box {
+    position: absolute;
+    width: 13.9rem;
+    height: 13.7rem;
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 48em) {
+      width: 12.6rem;
+      height: 12.4rem;
+    }
+  }
+
+  /* .what__content-box */
+
+  &__content-box {
+    width: 114rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    @media (max-width: 48em) {
+      width: 100%;
+      gap: 4.8rem;
+    }
+  }
+
+  /* .what__content-text-box */
+
+  &__content-text-box {
+    display: grid;
+    grid-template-columns: repeat(2, 55rem);
+    gap: 2rem;
+    @media (max-width: 48em) {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+    }
+  }
+
+  /* .what__content-text */
+
+  &__content-text {
+  }
+
+  /* .what__content-billet-box */
+
+  &__content-billet-box {
+    display: flex;
+    gap: 1.2rem 0.8rem;
+    flex-wrap: wrap;
+    width: 62rem;
+    @media (max-width: 48em) {
+      width: 100%;
+    }
+  }
+
+  /* .what__content-billet */
+
+  &__content-billet {
+  }
+}

@@ -1,0 +1,102 @@
+@import './mixins';
+@import './flexs';
+
+$white: #ffffff;
+$white-10: #ffffff1a;
+$black: #272626;
+$orange: #f6b611;
+$violet: #601feb;
+$grew: #979797;
+$light-purple: #e7e1fd;
+$light-grey: #f0f0f0;
+$light-black:  #2e2e2e;
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+
+body {
+  background: $white;
+  color: $black;
+
+  font-family: 'Geometria';
+
+  .lock & {
+    overflow: hidden;
+    touch-action: none;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+  position: relative;
+}
+
+* {
+  // outline:  1px solid red;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  section {
+    & .container {
+      padding-top: 3rem;
+      padding-bottom: 7rem;
+      @include small-tablet {
+        padding-top: 2rem;
+        padding-bottom: 14rem;
+      }
+    }
+ 
+    &._first {
+      & .container {
+        padding-top: 0;
+        padding-bottom:7rem;
+        @include small-tablet {
+          padding-bottom: 14rem;
+        }
+      }
+    }
+  }
+}
+
+.desktop {
+  display: flex;
+
+  @media (max-width: 48em) {
+    display: none;
+  }
+}
+
+.mobile {
+  display: none;
+
+  @media (max-width: 48em) {
+    display: flex;
+  }
+}
+
+@import './ui/ui';
