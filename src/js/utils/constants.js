@@ -14,7 +14,7 @@ export let bodyUnlock = (delay = 500) => {
   if (bodyLockStatus) {
     setTimeout(() => {
       body.style.paddingRight = '0px';
-      document.querySelector('header').style.paddingRight = '0px';
+      document.querySelector('.header__inner').style.paddingRight = '0px';
       document.documentElement.classList.remove('lock');
     }, delay);
     bodyLockStatus = false;
@@ -29,7 +29,7 @@ export let bodyLock = (delay = 500) => {
     const getScrollbarWidth = () => window.innerWidth - document.documentElement.clientWidth;
     let scrollWith = getScrollbarWidth();
     body.style.paddingRight = `${scrollWith}px`;
-    document.querySelector('header').style.paddingRight = `${scrollWith}px`;
+    document.querySelector('.header__inner').style.paddingRight = `${scrollWith}px`;
     document.documentElement.classList.add('lock');
     bodyLockStatus = false;
     setTimeout(function () {

@@ -9,7 +9,7 @@
     border-left: 1.5px solid $light-grey;
     border-right: 1.5px solid $light-grey;
     padding-bottom: 0!important;
-    @media (max-width: 48em) {
+   @include small-tablet {
       padding: 0;
       margin: 0 1.6rem;
       width: calc(100% - 3.2rem);
@@ -31,7 +31,7 @@
 
     position: relative;
 
-    @media (max-width: 48em) {
+   @include small-tablet {
       background: $black url(./assets/images/contactsBgMob.webp) no-repeat top/cover;
       flex-direction: column;
       gap: 4.8rem;
@@ -46,7 +46,7 @@
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    @media (max-width: 48em) {
+   @include small-tablet {
       gap: 2.4rem;
     }
   }
@@ -60,7 +60,7 @@
 
   &__title-box {
     width: 92rem;
-    @media (max-width: 48em) {
+   @include small-tablet {
       width: 100%;
     }
   }
@@ -80,7 +80,7 @@
     justify-content: space-between;
     width: 56.8rem;
     margin-top: 9rem;
-    @media (max-width: 48em) {
+   @include small-tablet {
       width: 100%;
       gap: 4.8rem;
       margin-top: 0;
@@ -104,7 +104,7 @@
     font-size: 4rem;
     line-height: 120%;
     text-transform: uppercase;
-    @media (max-width: 48em) {
+   @include small-tablet {
       font-size: 4.8rem;
     }
   }
@@ -117,7 +117,7 @@
     font-size: 4rem;
     line-height: 120%;
     text-transform: uppercase;
-    @media (max-width: 48em) {
+   @include small-tablet {
       font-size: 4.8rem;
     }
   }
@@ -132,7 +132,7 @@
   &__form-input-wrapper {
     display: flex;
     flex-direction: column;
-    @media (max-width: 48em) {
+   @include small-tablet {
        gap: 4.8rem;
       }
   }
@@ -143,7 +143,7 @@
     display: flex;
     flex-direction: column;
     gap: 2.4rem;
-    @media (max-width: 48em) {
+   @include small-tablet {
         gap: 3.6rem;
     }
   }
@@ -165,7 +165,20 @@
     top: 24rem;
     left: 74rem;
 
-    @media (max-width: 48em) {
+    &[disabled] {
+      & .contacts__form-btn {
+        background-color: #c2c1c1;
+      }
+
+      & .contacts__form-btn-svg-box {
+        filter: grayscale(1) invert(1);
+        opacity: 0.225;
+      }
+      pointer-events: none;
+
+    }
+
+   @include small-tablet {
       position: static;
       align-self: flex-end;
     }
@@ -182,8 +195,9 @@
     border-radius: 50%;
     background-color: $violet;
     position: relative;
+    transition: background-color 0.5s;
 
-    @media (max-width: 48em) {
+   @include small-tablet {
       width: 23.2rem;
       height: 23.2rem;
     }
@@ -201,7 +215,7 @@
       object-fit: cover;
     }
 
-    @media (max-width: 48em) {
+   @include small-tablet {
       width: 20.8rem;
       height: 21rem;
     }
@@ -213,13 +227,14 @@
     position: absolute;
     width: 13.9rem;
     height: 13.7rem;
+    transition: filter 0.5s, opacity 0.5s;
     & img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    @media (max-width: 48em) {
+   @include small-tablet {
       width: 12.6rem;
       height: 12.4rem;
     }

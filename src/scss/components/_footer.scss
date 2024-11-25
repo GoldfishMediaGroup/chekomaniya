@@ -13,7 +13,7 @@
     padding-top: 10rem;
     border: 1.5px solid $light-grey;
     border-top: unset;
-    @media (max-width: 48em) {
+    @include small-tablet {
       padding-top: 11.2rem;
     }
   }
@@ -99,7 +99,7 @@
   &__bottom {
     padding: 3.2rem 5rem;
     border-top: 1.5px solid $light-grey;
-    border-bottom: 1.5px solid $light-grey;
+    // border-bottom: 1.5px solid $light-grey;
     display: flex;
     align-items: center;
     justify-content: space-between;
