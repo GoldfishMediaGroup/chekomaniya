@@ -104,7 +104,40 @@
   </div>
 </header>
 
-      
+      <div id="popup__success" aria-hidden="true" class="popup popup--success">
+  <div class="popup__wrapper">
+    <div class="popup__content">
+      <div class="popup__body">
+        <button data-close="" type="button" class="popup__body-close-btn">
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="40" r="40" fill="#601FEB"></circle>
+            <path d="M51.8181 28.1816L28.1818 51.818" stroke="white" stroke-width="2.72727" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M28.1818 28.1816L51.8181 51.818" stroke="white" stroke-width="2.72727" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+        <div class="popup__body-content-box">
+          <div class="popup__body-content-box-title-box">
+            <p class="popup__body-content-box-title tl3">ваша заявка <br> <span>успешно</span> отправлена</p>
+            <p class="popup__body-content-box-desk ">
+              Вы успешно отправили заявку! Ожидайте, пожалуйста, мы свяжемся с вами в ближайшее время!
+            </p>
+          </div>
+
+          <button data-close="" class="popup__btn txt18">
+            <p class="popup__btn-text txt18">Продолжить</p>
+
+            <div class="popup__btn-svg-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M23.7071 13.294C24.0976 12.9035 24.0976 12.2703 23.7071 11.8798L17.3431 5.51585C16.9526 5.12532 16.3195 5.12532 15.9289 5.51585C15.5384 5.90637 15.5384 6.53954 15.9289 6.93006L21.5858 12.5869L15.9289 18.2438C15.5384 18.6343 15.5384 19.2675 15.9289 19.658C16.3195 20.0485 16.9526 20.0485 17.3431 19.658L23.7071 13.294ZM1 13.5869L23 13.5869V11.5869L1 11.5869L1 13.5869Z" fill="white"></path>
+              </svg>
+            </div>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
       <main>
         <section class="banner _first" id="banner">
   <div class="container banner__container">
@@ -1689,7 +1722,7 @@
           <a class="contacts__social-mail" href="mailto:+79000000000">checkomania@mail.com</a>
         </div>
 
-        <form class="contacts__form-box" data-popup-message="" data-dev="" action="">
+        <form class="contacts__form-box" data-popup-message="#popup__success" data-dev="" action="">
           <div class="contacts__form-input-wrapper">
             <div class="contacts__form-input-box txt18">
               <label class="contacts__label input-group">

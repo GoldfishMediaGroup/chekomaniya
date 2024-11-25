@@ -81,10 +81,13 @@ function stagesSection() {
     rows.forEach((row, index) => {
       if (index === 0) {
         // Для текущего слайда устанавливаем opacity: 1, чтобы показать
-        gsap.set(row, { opacity: 1,  scale: 1, y: 0});
+        // gsap.set(row, { opacity: 1,  scale: 1, y: 0});
+        gsap.set(row, { x: 0});
       } else {
         // Для всех остальных слайдов устанавливаем opacity: 0, чтобы скрыть
-        gsap.set(row, { opacity: 0,   scale: 0.8, y: '80%'});
+        // gsap.set(row, { opacity: 0,   scale: 0.8, y: '80%'});
+
+        gsap.set(row, { x: '+=111%'});
       }
     });
 
@@ -221,8 +224,10 @@ function stagesSection() {
 
       .to(svgOneRowThreePath, { duration: 3, strokeDashoffset: 0, ease: 'power2.out' })
 
-      .to(row1, { opacity: 0, duration: 5, scale: 0.8, y: '80%' })
-      .to(row2, { opacity: 1, duration: 5, scale: 1, y: 0 }, '-=5s')
+      // .to(row1, { opacity: 0, duration: 5, scale: 0.8, y: '80%' })
+      // .to(row2, { opacity: 1, duration: 5, scale: 1, y: 0 }, '-=5s')
+      .to(row1, { x:'-=111%',  duration: 6,})
+      .to(row2, { x:'0',  duration: 6, },'-=6s')
 
       // второй ряд
 
@@ -260,8 +265,11 @@ function stagesSection() {
 
       .to(svgTwoRowFourPath, { duration: 3, strokeDashoffset: 0, ease: 'power2.out' })
 
-      .to(row2, { opacity: 0, duration: 5,  scale: 0.8, y: '80%' })
-      .to(row3, { opacity: 1, duration: 5, scale: 1, y: 0 }, '-=5s')
+      // .to(row2, { opacity: 0, duration: 5,  scale: 0.8, y: '80%' })
+      // .to(row3, { opacity: 1, duration: 5, scale: 1, y: 0 }, '-=5s')
+
+      .to(row2, { x:'-=111%',  duration: 6,})
+      .to(row3, { x:'0',  duration: 6, },'-=6s')
 
       // третий ряд
 

@@ -9,7 +9,7 @@
     border-left: 1.5px solid $light-grey;
     border-right: 1.5px solid $light-grey;
     //  position: relative;
-    @media (max-width: 48em) {
+ @include small-tablet {
       padding: 0;
       margin: 0 1.6rem;
       width: calc(100% - 3.2rem);
@@ -193,7 +193,7 @@
     border-radius: 50%;
     background-color: $orange;
 
-    @media (max-width: 48em) {
+ @include small-tablet {
       width: 23rem;
       height: 23rem;
     }
@@ -211,7 +211,7 @@
       object-fit: cover;
     }
 
-    @media (max-width: 48em) {
+ @include small-tablet {
       width: 21.4rem;
       height: 21.4rem;
     }
@@ -229,7 +229,7 @@
       object-fit: cover;
     }
 
-    @media (max-width: 48em) {
+ @include small-tablet {
       width: 6.6rem;
       height: 6.6rem;
     }
@@ -249,7 +249,7 @@
       object-fit: cover;
     }
 
-    @media (max-width: 48em) {
+ @include small-tablet {
       width: 29.2rem;
       height: 30.8rem;
     }

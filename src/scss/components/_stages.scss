@@ -10,7 +10,7 @@
     border-right: 1.5px solid $light-grey;
     padding-top: 15rem!important;
     //  position: relative;
-    @media (max-width: 48em) {
+@include small-tablet {
       padding: 0;
       margin: 0 1.6rem;
       width: calc(100% - 3.2rem);
@@ -53,7 +53,7 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    @media (max-width: 48em) {
+@include small-tablet {
       min-height: unset;
     }
   }
@@ -77,7 +77,7 @@
     // justify-content: space-between;
     justify-content: center;
 
-    @media (max-width: 48em) {
+@include small-tablet {
       gap: 4.8rem;
       border-radius: 4.8rem;
       padding: 6.8rem 2.4rem;
