@@ -324,7 +324,7 @@
     border-bottom: 1.5px solid $white-10;
     @include small-tablet {
       gap: 11rem;
-      height: 11rem;
+      min-height: 11rem;
     }
   }
 
