@@ -1746,9 +1746,9 @@
               </label>
 
               <label class="contacts__label-input-file label-input-file">
-                <input class="contacts__input-file input-file" type="file" multiple="" name="file_project">
+                <input class="contacts__input-file input-file" accept=".docx,.pdf,.pptx" type="file" multiple="" name="file_project">
                 <span class="contacts__input-file-btn input-file-btn">
-                  <span class="contacts__input-text input-file-btn__text">Прикрепить файлы</span>
+                  <span class="contacts__input-text input-file-btn__text">Прикрепить файл (DOCX, PDF, PPTX)</span>
                   <span class="contacts__label-input-file-svg-box input-file-btn__svg-box">
                     <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M22.2843 12.1739L12.0843 22.4596C11.6886 22.8629 11.2164 23.1832 10.6954 23.4019C10.1744 23.6205 9.61505 23.7331 9.05003 23.7331C8.48501 23.7331 7.92566 23.6205 7.40467 23.4019C6.88368 23.1832 6.4115 22.8629 6.01574 22.4596L2.96431 19.3567C2.1655 18.5454 1.71777 17.4525 1.71777 16.3139C1.71777 15.1753 2.1655 14.0824 2.96431 13.271L13.8329 2.36817C14.1516 2.04682 14.5308 1.79175 14.9486 1.61768C15.3664 1.44362 15.8146 1.354 16.2672 1.354C16.7198 1.354 17.1679 1.44362 17.5857 1.61768C18.0035 1.79175 18.3827 2.04682 18.7015 2.36817L19.9186 3.58531C20.24 3.90404 20.495 4.28325 20.6691 4.70105C20.8431 5.11885 20.9328 5.56699 20.9328 6.0196C20.9328 6.47221 20.8431 6.92034 20.6691 7.33815C20.495 7.75595 20.24 8.13515 19.9186 8.45388L10.2843 18.1225C10.1249 18.2831 9.93535 18.4107 9.72644 18.4977C9.51754 18.5847 9.29348 18.6295 9.06717 18.6295C8.84086 18.6295 8.6168 18.5847 8.4079 18.4977C8.19899 18.4107 8.00939 18.2831 7.85003 18.1225L7.25003 17.5053C7.08935 17.3459 6.96182 17.1563 6.87478 16.9474C6.78775 16.7385 6.74294 16.5145 6.74294 16.2882C6.74294 16.0619 6.78775 15.8378 6.87478 15.6289C6.96182 15.42 7.08935 15.2304 7.25003 15.071L13.7129 8.6596" stroke="#F6B611" stroke-width="1.71429" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -1756,8 +1756,20 @@
                   </span>
                 </span>
 
-                <span class="error-span"></span>
+                <span class="error-span">Загрузить файл весом не более 15 Мб</span>
               </label>
+
+              <div class="contacts__form-files-items form-files-items file_project">
+                <!-- <div class=" form-files-item" data-hover="Заявка на сотрудничество с чекоманией">
+                  <p target="_blank" >rtf</p>
+                  <button type="button" class="removeBtn">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.3334 3.6665L3.66669 12.3332" stroke="#F6B611" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M3.66669 3.6665L12.3334 12.3332" stroke="#F6B611" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </button>
+                </div> -->
+              </div>
             </div>
 
             <div class="contacts__form-btn-box">
@@ -1776,7 +1788,7 @@
     </div>
   </div>
 </section>
- 
+
       </main>
       <footer class="footer">
   <div class="container">
@@ -1833,5 +1845,127 @@
 </footer>
 
     </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        try {
+          inputFile();
+        } catch {}
+      });
+
+      let arr = [];
+
+      function inputFile() {
+        function formatFileSize(bytes) {
+          if (bytes < 1024) return bytes + ' b';
+          else if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' kb';
+          else return (bytes / 1048576).toFixed(1) + ' mb';
+        }
+
+        $('.label-input-file input[type=file]').on('change', function () {
+          const filesItems = $('body').find('.form-files-items.' + $(this).attr('name'));
+          const inputEl = $(this).next();
+
+          if (filesItems.length > 0) {
+    
+
+            const input = $(this).closest('.label-input-file').find('.input-file-btn__text')
+
+            let files = Array.from(this.files);
+          
+            const main = $(this).attr('name');
+            let newArr = arr.find((x) => x.name === main);
+            if (newArr) {
+              arr.map((x) => {
+                if (x.name == main) {
+                  files.forEach((i) => {
+                    if (i.size < 15 * 1024 * 1024) {
+                      if (!x.file.some((item) => item.name === i.name)) {
+                        input.text('Файл(-ы) загружен(-ы)');
+                        input.parent().addClass('_form-field')
+                        x.file.push(i); 
+                      } 
+                    }
+                  });
+                }
+              });
+            } else {
+              let asd = [];
+              files.forEach((i) => {
+                if (i.size < 15 * 1024 * 1024) {
+                  input.text('Файл(-ы) загружен(-ы)');
+                  input.parent().addClass('_form-field')
+                  asd.push(i);
+                }
+              });
+              arr.push({
+                name: main,
+                file: asd
+              });
+            }
+
+
+            let currArr = arr.find((x) => x.name === main);
+
+            console.log(arr);
+
+            $.each(files, function (index, file) {
+              if (file.size < 15 * 1024 * 1024) {
+                if (!filesItems.find(`[data-hover="${file.name} ${formatFileSize(file.size)}"]`).length) {
+                  filesItems.append(
+                    `<div class="form-files-item" data-hover="${file.name} ${formatFileSize(file.size)}">
+                        <p target="_blank" >${file.name.split('.').pop()}</p>
+                        <button type="button" class="removeBtn">
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.3334 3.6665L3.66669 12.3332" stroke="#F6B611" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M3.66669 3.6665L12.3334 12.3332" stroke="#F6B611" stroke-linecap="round" stroke-linejoin="round" />
+                          </svg>
+                        </button>
+                      </div>
+                      `
+                  );
+                }
+              } else {
+                inputEl.addClass('_form-error');
+                inputEl.next().addClass('active');
+                setTimeout(() => {
+                  inputEl.removeClass('_form-error');
+                  inputEl.next().removeClass('active');
+                }, 3000);
+              }
+            });
+          }
+
+          $(this).val('');
+        });
+
+        $(document).on('click', '.removeBtn', function () {
+          let thisClass = $(this).parent().parent().attr('class').split(' ');
+          let input = $('body').find('input[name=' + thisClass[thisClass.length - 1] + ']');
+          let span = input.closest('.label-input-file').find('.input-file-btn__text');
+
+          let parent = $(this).parent();
+          $(this)
+            .parent()
+            .parent()
+            .find('.form-files-item')
+            .each(function (i) {
+              if ($(this).is(parent)) {
+                arr.map((x) => {
+                  if (x.name == thisClass[thisClass.length - 1]) {
+                    x.file.splice(i, 1);
+                    if (x.file.length === 0) {
+                      span.text('Прикрепить файл (DOCX, PDF, PPTX)');
+                      span.parent().removeClass('_form-field')
+                    }
+                  }
+                });
+              }
+            });
+          console.log(arr);
+          $(this).parent().remove();
+        });
+      }
+    </script>
   </body>
 </html>

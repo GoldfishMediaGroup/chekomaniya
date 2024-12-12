@@ -37,11 +37,11 @@ const form = () => {
         if (!/^[a-zA-Zа-яА-Я\s\-]+$/.test(inputValue) || inputValue == '') {
           // span.classList.add('active');
           parent.classList.add('_form-error');
-                    parent.classList.remove('_form-field');
+          parent.classList.remove('_form-field');
         } else {
           // span.classList.remove('active');
           parent.classList.remove('_form-error');
-                   parent.classList.add('_form-field');
+          parent.classList.add('_form-field');
         }
       });
     });
@@ -61,15 +61,15 @@ const form = () => {
 
         if (!/^\+\d{1} \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(inputValue) && inputValue != '') {
           // span.classList.add('active');
-          parent.classList.add('_form-error');    
-           parent.classList.remove('_form-field');
+          parent.classList.add('_form-error');
+          parent.classList.remove('_form-field');
         } else if (inputValue.length < 16) {
           parent.classList.add('_form-error');
-                    parent.classList.remove('_form-field');
+          parent.classList.remove('_form-field');
         } else {
           // span.classList.remove('active');
           parent.classList.remove('_form-error');
-                   parent.classList.add('_form-field');
+          parent.classList.add('_form-field');
         }
       });
     });
@@ -111,14 +111,13 @@ const form = () => {
           // span.classList.add('active');
           parent.classList.add('_form-error');
           parent.classList.remove('_form-field');
-        }
-        else if (inputValue === '') {
+        } else if (inputValue === '') {
           parent.classList.add('_form-error');
           parent.classList.remove('_form-field');
         } else {
           // span.classList.remove('active');
           parent.classList.remove('_form-error');
-               parent.classList.add('_form-field');
+          parent.classList.add('_form-field');
         }
       });
     });

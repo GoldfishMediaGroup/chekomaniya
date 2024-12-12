@@ -68,9 +68,15 @@
               </label>
 
               <label class="contacts__label-input-file label-input-file">
-                <input class="contacts__input-file input-file" type="file" multiple="" name="file_project" />
+                <input
+                  class="contacts__input-file input-file"
+                  accept=".docx,.pdf,.pptx"
+                  type="file"
+                  multiple=""
+                  name="file_project"
+                />
                 <span class="contacts__input-file-btn input-file-btn">
-                  <span class="contacts__input-text input-file-btn__text">Прикрепить файлы</span>
+                  <span class="contacts__input-text input-file-btn__text">Прикрепить файл (DOCX, PDF, PPTX)</span>
                   <span class="contacts__label-input-file-svg-box input-file-btn__svg-box">
                     <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
@@ -84,8 +90,20 @@
                   </span>
                 </span>
 
-                <span class="error-span"></span>
+                <span class="error-span">Загрузить файл весом не более 15 Мб</span>
               </label>
+
+              <div class="contacts__form-files-items form-files-items file_project">
+                <!-- <div class=" form-files-item" data-hover="Заявка на сотрудничество с чекоманией">
+                  <p target="_blank" >rtf</p>
+                  <button type="button" class="removeBtn">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12.3334 3.6665L3.66669 12.3332" stroke="#F6B611" stroke-linecap="round" stroke-linejoin="round" />
+                      <path d="M3.66669 3.6665L12.3334 12.3332" stroke="#F6B611" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                  </button>
+                </div> -->
+              </div>
             </div>
 
             <div class="contacts__form-btn-box">

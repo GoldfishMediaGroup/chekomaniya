@@ -89,10 +89,7 @@ export let formValidate = {
     let formRequiredItems = form.querySelectorAll('*[data-required]');
     if (formRequiredItems.length) {
       formRequiredItems.forEach((formRequiredItem) => {
-        if (
-          (formRequiredItem.offsetParent !== null || formRequiredItem.tagName === 'SELECT') &&
-          !formRequiredItem.disabled
-        ) {
+        if ((formRequiredItem.offsetParent !== null || formRequiredItem.tagName === 'SELECT') && !formRequiredItem.disabled) {
           error += this.validateInput(formRequiredItem);
         }
       });
@@ -112,7 +109,6 @@ export let formValidate = {
     } else if (formRequiredItem.dataset.required === 'tel') {
       // formRequiredItem.value = formRequiredItem.value.replace(/[^0-9]/g, ''); // Оставить только цифры и символы +()
       if (!/^\+\d{1} \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(formRequiredItem.value)) {
-
         this.addError(formRequiredItem);
         error++;
       } else {
@@ -126,7 +122,7 @@ export let formValidate = {
       } else {
         this.removeError(formRequiredItem);
       }
-    }else if (formRequiredItem.dataset.required === 'dropdown') {
+    } else if (formRequiredItem.dataset.required === 'dropdown') {
       if (!formRequiredItem.classList.contains('filled')) {
         this.addError(formRequiredItem);
         error++;
@@ -181,39 +177,46 @@ export let formValidate = {
       error.classList.remove('active');
     }
     if (formRequiredItem.parentElement.querySelector('.form__error')) {
-      formRequiredItem.parentElement.removeChild(
-        formRequiredItem.parentElement.querySelector('.form__error')
-      );
+      formRequiredItem.parentElement.removeChild(formRequiredItem.parentElement.querySelector('.form__error'));
     }
   },
   formClean(form) {
     // form.reset();
-    setTimeout(() => {
-      let inputs = form.querySelectorAll('input,textarea');
-      for (let index = 0; index < inputs.length; index++) {
-        const el = inputs[index];
-        el.parentElement.classList.remove('_form-focus');
-        el.parentElement.parentElement.classList.remove('_form-field');
-        el.classList.remove('_form-focus');
-        formValidate.removeError(el);
-      }
-      let checkboxes = form.querySelectorAll('.checkbox__input');
-      if (checkboxes.length > 0) {
-        for (let index = 0; index < checkboxes.length; index++) {
-          const checkbox = checkboxes[index];
-          checkbox.checked = false;
-        }
-      }
-      // if (modules.select) {
-      //     let selects = form.querySelectorAll('.select');
-      //     if (selects.length) {
-      //         for (let index = 0; index < selects.length; index++) {
-      //             const select = selects[index].querySelector('select');
-      //             modules.select.selectBuild(select);
-      //         }
-      //     }
-      // }
-    }, 0);
+    // setTimeout(() => {
+    //   let inputs = form.querySelectorAll('input,textarea');
+    //   for (let index = 0; index < inputs.length; index++) {
+    //     const el = inputs[index];
+    //     el.parentElement.classList.remove('_form-focus');
+    //     el.parentElement.parentElement.classList.remove('_form-field');
+    //     el.classList.remove('_form-focus');
+    //     formValidate.removeError(el);
+    //   }
+    //   let checkboxes = form.querySelectorAll('.checkbox__input');
+    //   if (checkboxes.length > 0) {
+    //     for (let index = 0; index < checkboxes.length; index++) {
+    //       const checkbox = checkboxes[index];
+    //       checkbox.checked = false;
+    //     }
+    //   }
+
+
+    //   let fileBox = form.querySelector('.form-files-items');
+    //   let span = form.querySelector('.input-file-btn__text')
+    //   fileBox.innerHTML = '';
+    //   span.textContent = 'Прикрепить файл (DOCX, PDF, PPTX)'
+
+
+
+    //   // if (modules.select) {
+    //   //     let selects = form.querySelectorAll('.select');
+    //   //     if (selects.length) {
+    //   //         for (let index = 0; index < selects.length; index++) {
+    //   //             const select = selects[index].querySelector('select');
+    //   //             modules.select.selectBuild(select);
+    //   //         }
+    //   //     }
+    //   // }
+    // }, 0);
   },
   emailTest(formRequiredItem) {
     return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(formRequiredItem.value);
