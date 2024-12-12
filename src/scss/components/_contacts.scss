@@ -8,8 +8,8 @@
   &__container {
     border-left: 1.5px solid $light-grey;
     border-right: 1.5px solid $light-grey;
-    padding-bottom: 0!important;
-   @include small-tablet {
+    padding-bottom: 0 !important;
+    @include small-tablet {
       padding: 0;
       margin: 0 1.6rem;
       width: calc(100% - 3.2rem);
@@ -19,20 +19,19 @@
   /* .contacts__inner */
 
   &__inner {
-    background: $black url(./assets/images/contactsBgDesk.webp) no-repeat top/cover;
+    background: $black url(./assets/images/contactsBgDesk.webp) no-repeat bottom/contain;
     // background: $black;
-
     color: $white;
     border-radius: 4rem;
-    padding: 12rem 5rem;
+    padding: 12rem 5rem 6rem;
     display: flex;
     gap: 14.4rem;
     justify-content: space-between;
 
     position: relative;
 
-   @include small-tablet {
-      background: $black url(./assets/images/contactsBgMob.webp) no-repeat top/cover;
+    @include small-tablet {
+      background: $black url(./assets/images/contactsBgMob.webp) no-repeat bottom/cover;
       flex-direction: column;
       gap: 4.8rem;
       border-radius: 4.8rem;
@@ -46,7 +45,7 @@
     display: flex;
     flex-direction: column;
     gap: 3rem;
-   @include small-tablet {
+    @include small-tablet {
       gap: 2.4rem;
     }
   }
@@ -60,7 +59,7 @@
 
   &__title-box {
     width: 92rem;
-   @include small-tablet {
+    @include small-tablet {
       width: 100%;
     }
   }
@@ -77,10 +76,11 @@
     display: flex;
     flex-direction: column;
     gap: 9rem;
+    gap: 6rem;
     justify-content: space-between;
     width: 56.8rem;
     margin-top: 9rem;
-   @include small-tablet {
+    @include small-tablet {
       width: 100%;
       gap: 4.8rem;
       margin-top: 0;
@@ -93,7 +93,6 @@
     display: flex;
     flex-direction: column;
     gap: 2.4rem;
- 
   }
 
   /* .contacts__social-tel */
@@ -104,7 +103,7 @@
     font-size: 4rem;
     line-height: 120%;
     text-transform: uppercase;
-   @include small-tablet {
+    @include small-tablet {
       font-size: 4.8rem;
     }
   }
@@ -117,7 +116,7 @@
     font-size: 4rem;
     line-height: 120%;
     text-transform: uppercase;
-   @include small-tablet {
+    @include small-tablet {
       font-size: 4.8rem;
     }
   }
@@ -132,9 +131,9 @@
   &__form-input-wrapper {
     display: flex;
     flex-direction: column;
-   @include small-tablet {
-       gap: 4.8rem;
-      }
+    @include small-tablet {
+      gap: 4.8rem;
+    }
   }
 
   /* .contacts__form-input-box */
@@ -143,8 +142,23 @@
     display: flex;
     flex-direction: column;
     gap: 2.4rem;
-   @include small-tablet {
-        gap: 3.6rem;
+    @include small-tablet {
+      gap: 3.6rem;
+    }
+    position: relative;
+    &::before {
+      top: -1rem;
+      left: -3.6rem;
+      transform: translateX(-100%);
+      position: absolute;
+      content: '';
+      display: block;
+      width: 15.3rem;
+      height: 36.2rem;
+      background: url(./assets/images/contactsArrow.svg) no-repeat top/cover;
+      @include small-tablet {
+        display: none;
+      }
     }
   }
 
@@ -175,10 +189,9 @@
         opacity: 0.225;
       }
       pointer-events: none;
-
     }
 
-   @include small-tablet {
+    @include small-tablet {
       position: static;
       align-self: flex-end;
     }
@@ -197,7 +210,7 @@
     position: relative;
     transition: background-color 0.5s;
 
-   @include small-tablet {
+    @include small-tablet {
       width: 23.2rem;
       height: 23.2rem;
     }
@@ -215,7 +228,7 @@
       object-fit: cover;
     }
 
-   @include small-tablet {
+    @include small-tablet {
       width: 20.8rem;
       height: 21rem;
     }
@@ -234,7 +247,7 @@
       object-fit: cover;
     }
 
-   @include small-tablet {
+    @include small-tablet {
       width: 12.6rem;
       height: 12.4rem;
     }

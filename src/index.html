@@ -19,9 +19,131 @@
         <include src="./components/_cases.html"></include>
         <include src="./components/_tariffs.html"></include>
         <include src="./components/_questions.html"></include>
-        <include src="./components/_contacts.html"></include> 
+        <include src="./components/_contacts.html"></include>
       </main>
       <include src="./components/_footer.html"></include>
     </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        try {
+          inputFile();
+        } catch {}
+      });
+
+      let arr = [];
+
+      function inputFile() {
+        function formatFileSize(bytes) {
+          if (bytes < 1024) return bytes + ' b';
+          else if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' kb';
+          else return (bytes / 1048576).toFixed(1) + ' mb';
+        }
+
+        $('.label-input-file input[type=file]').on('change', function () {
+          const filesItems = $('body').find('.form-files-items.' + $(this).attr('name'));
+          const inputEl = $(this).next();
+
+          if (filesItems.length > 0) {
+    
+
+            const input = $(this).closest('.label-input-file').find('.input-file-btn__text')
+
+            let files = Array.from(this.files);
+          
+            const main = $(this).attr('name');
+            let newArr = arr.find((x) => x.name === main);
+            if (newArr) {
+              arr.map((x) => {
+                if (x.name == main) {
+                  files.forEach((i) => {
+                    if (i.size < 15 * 1024 * 1024) {
+                      if (!x.file.some((item) => item.name === i.name)) {
+                        input.text('Файл(-ы) загружен(-ы)');
+                        input.parent().addClass('_form-field')
+                        x.file.push(i); 
+                      } 
+                    }
+                  });
+                }
+              });
+            } else {
+              let asd = [];
+              files.forEach((i) => {
+                if (i.size < 15 * 1024 * 1024) {
+                  input.text('Файл(-ы) загружен(-ы)');
+                  input.parent().addClass('_form-field')
+                  asd.push(i);
+                }
+              });
+              arr.push({
+                name: main,
+                file: asd
+              });
+            }
+
+
+            let currArr = arr.find((x) => x.name === main);
+
+            console.log(arr);
+
+            $.each(files, function (index, file) {
+              if (file.size < 15 * 1024 * 1024) {
+                if (!filesItems.find(`[data-hover="${file.name} ${formatFileSize(file.size)}"]`).length) {
+                  filesItems.append(
+                    `<div class="form-files-item" data-hover="${file.name} ${formatFileSize(file.size)}">
+                        <p target="_blank" >${file.name.split('.').pop()}</p>
+                        <button type="button" class="removeBtn">
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.3334 3.6665L3.66669 12.3332" stroke="#F6B611" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M3.66669 3.6665L12.3334 12.3332" stroke="#F6B611" stroke-linecap="round" stroke-linejoin="round" />
+                          </svg>
+                        </button>
+                      </div>
+                      `
+                  );
+                }
+              } else {
+                inputEl.addClass('_form-error');
+                inputEl.next().addClass('active');
+                setTimeout(() => {
+                  inputEl.removeClass('_form-error');
+                  inputEl.next().removeClass('active');
+                }, 3000);
+              }
+            });
+          }
+
+          $(this).val('');
+        });
+
+        $(document).on('click', '.removeBtn', function () {
+          let thisClass = $(this).parent().parent().attr('class').split(' ');
+          let input = $('body').find('input[name=' + thisClass[thisClass.length - 1] + ']');
+          let span = input.closest('.label-input-file').find('.input-file-btn__text');
+
+          let parent = $(this).parent();
+          $(this)
+            .parent()
+            .parent()
+            .find('.form-files-item')
+            .each(function (i) {
+              if ($(this).is(parent)) {
+                arr.map((x) => {
+                  if (x.name == thisClass[thisClass.length - 1]) {
+                    x.file.splice(i, 1);
+                    if (x.file.length === 0) {
+                      span.text('Прикрепить файл (DOCX, PDF, PPTX)');
+                      span.parent().removeClass('_form-field')
+                    }
+                  }
+                });
+              }
+            });
+          console.log(arr);
+          $(this).parent().remove();
+        });
+      }
+    </script>
   </body>
 </html>
